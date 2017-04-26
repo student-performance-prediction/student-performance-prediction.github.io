@@ -1,0 +1,90 @@
+
+
+
+.report{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.report-list {
+    list-style-type:upper-roman;
+}
+.report-h1{
+    font-size: 28px;
+    font-weight: bold;
+}
+.report-section{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    font-weight: normal;
+}
+
+
+.CodeMirror {
+    font-family: Cousine, Menlo, Monaco, Courier, monospace;
+    font-size: 11px;
+    background-color: #ffffff;
+    line-height: 18px;
+    border-radius: 2px;
+    /*margin: 10px 0;*/
+    height: 275px;
+    -webkit-box-shadow: 0px 1px rgba(0,0,0,.1);
+    -moz-box-shadow: 0px 1px rgba(0,0,0,.1);
+    box-shadow: 0px 1px rgba(0,0,0,.1);
+    margin-top: 0px;
+}
+
+.text-clipboard {
+    display: block;
+    width: 100%;
+    height: 275px;
+    resize: none;
+    font-family: Cousine, Menlo, Monaco, Courier, monospace;
+    font-size: 11px;
+}
+
+.paste-box {
+    border: 3px dashed #DDD;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+
+.drop-box {
+    background: transparent;
+    border: 3px dashed #DDD;
+    height: 275px;
+    text-align: center;
+    padding: 0px;
+
+    /* Internet Explorer 10 */
+    display:-ms-flexbox;
+    -ms-flex-pack:center;
+    -ms-flex-align:center;
+
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-align:center;
+
+    /* Safari, Opera, and Chrome */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+
+    border-radius: 2px;
+
+    cursor: pointer;
+}
+
+.drop-box:hover a {
+    color: #444;
+}
+
