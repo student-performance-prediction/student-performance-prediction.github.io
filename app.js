@@ -9,6 +9,7 @@
         ,'spp.app.navbar'
         ,'spp.app.menu'
         ,'spp.app.home'
+        ,'spp.app.report'
     ])
         .service('AppService',function($q,$timeout,$window,$state){
             var self = this;
