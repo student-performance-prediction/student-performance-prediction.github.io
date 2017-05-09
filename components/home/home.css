@@ -22,6 +22,10 @@
     font-weight: normal;
 }
 
+.view-notebook-link{
+    font-size: 12px;
+}
+
 
 .CodeMirror {
     font-family: Cousine, Menlo, Monaco, Courier, monospace;
