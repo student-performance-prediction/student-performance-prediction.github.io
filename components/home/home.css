@@ -26,6 +26,45 @@
     font-size: 12px;
 }
 
+h4 {
+    background-color: #ececec;
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+pre:before {
+    content: '\f462';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 100%;
+    background: #e74f4e;
+    color: #fff;
+    font-family: "Genericons";
+    font-size: 16px;
+    text-align: center;
+}
+
+pre {
+    position: relative;
+    overflow: auto;
+    padding: 24px;
+    padding-left: 48px;
+    margin-bottom: 24px;
+    max-width: 100%;
+    border: 1px solid #d2cfcf;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -ms-word-wrap: normal;
+    word-wrap: normal;
+    background: #f1f0f0;
+    font-family: "Droid Sans Mono", monospace;
+}
+
 
 .CodeMirror {
     font-family: Cousine, Menlo, Monaco, Courier, monospace;

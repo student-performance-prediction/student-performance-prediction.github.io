@@ -36,6 +36,16 @@
                 templateUrl: 'components/report/03_data.html?'+ticks
             }
         })
+        .directive('explore', function() {
+            var now = new Date();
+            var ticks = now.getTime();
+
+            return {
+                restrict: 'E',
+                transclude: true,
+                templateUrl: 'components/report/03_explore.html?'+ticks
+            }
+        })
         .directive('methodology', function() {
             var now = new Date();
             var ticks = now.getTime();

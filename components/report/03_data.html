@@ -1,5 +1,5 @@
 <li class="report-h1">
-    Data
+    Prepare Data
     <div class="report-section">
         <h4>Source</h4>
         <p>The data for this project is available for download from the UCI Machine Learning Repository
@@ -8,11 +8,12 @@
         <p>The zip file downloaded from the above link consists of two files student-por.csv and student-mat.csv. These files represent the student data collected for the Portuguese language and Mathematics class.</p>
 
         <h4>Load and Understand
-            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/01_Data.ipynb" target="_blank">view notebook</a></span>
+            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/01_Data.ipynb" target="_blank">view jupyter notebook</a></span>
         </h4>
         <p>
-            On loading the data we can can see that we can see that for the Mathematics course we have 395 rows and 33 columns
-            and for the Portuguese language course we have 649 rows and 33 columns
+            On loading the data we see that for the Mathematics course we have 395 rows and 33 columns
+            and for the Portuguese language course we have 649 rows and 33 columns.
+            Both the datasets have the same set of columns and we can review the column description provided with the datasets.
 
             <br><br><b>The columns for both student-mat.csv (Mathematics course) and student-por.csv (Portuguese language course) datasets:</b>
             <br>1. <b>school</b> - student's school (binary: "GP" - Gabriel Pereira or "MS" - Mousinho da Silveira)
@@ -53,17 +54,160 @@
 
             <br><br>Additional note on the data: there are several (382) students that belong to both datasets .
             These students can be identified by searching for identical attributes
-            that characterize each student, as shown in the annexed R file.
+            that characterize each student, we can combine the
+            students of the two classes using the columns "school", "sex", "age", "address", "famsize", "Pstatus", "Medu",
+            "Fedu", "Mjob", "Fjob", "reason", "nursery", "internet".
 
         </p>
 
         <h4>Data Cleaning
-            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/01_Data.ipynb" target="_blank">view notebook</a></span>
+            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/01_Data.ipynb#data_cleaning" target="_blank">view jupyter notebook</a></span>
         </h4>
-        <h4>Feature Expansion - On categorical variable / one hot encoding</h4>
-        <h4>Normalization/Standardization on non categorical variables</h4>
+        <p>
+            Before cleaning the data we can analyze the content of the data.
+            In the analysis of the data values we assume that if a column has a string value or has less than 15 unique numeric values it is classified as categorical.
+            Once we do this analysis we can visually look at the results and decide if a columns are categorical or numeric.
+
+            <br/>Data for Mathematics course Students:
+            <pre>
+                school : (Categorical) 2 unique value(s) - ['GP' 'MS']
+                sex : (Categorical) 2 unique value(s) - ['F' 'M']
+                age : (Categorical) 8 unique value(s) - [15 16 17 18 19 20 21 22]
+                address : (Categorical) 2 unique value(s) - ['R' 'U']
+                famsize : (Categorical) 2 unique value(s) - ['GT3' 'LE3']
+                Pstatus : (Categorical) 2 unique value(s) - ['A' 'T']
+                Medu : (Categorical) 5 unique value(s) - [0 1 2 3 4]
+                Fedu : (Categorical) 5 unique value(s) - [0 1 2 3 4]
+                Mjob : (Categorical) 5 unique value(s) - ['at_home' 'health' 'other' 'services' 'teacher']
+                Fjob : (Categorical) 5 unique value(s) - ['at_home' 'health' 'other' 'services' 'teacher']
+                reason : (Categorical) 4 unique value(s) - ['course' 'home' 'other' 'reputation']
+                guardian : (Categorical) 3 unique value(s) - ['father' 'mother' 'other']
+                traveltime : (Categorical) 4 unique value(s) - [1 2 3 4]
+                studytime : (Categorical) 4 unique value(s) - [1 2 3 4]
+                failures : (Categorical) 4 unique value(s) - [0 1 2 3]
+                schoolsup : (Categorical) 2 unique value(s) - ['no' 'yes']
+                famsup : (Categorical) 2 unique value(s) - ['no' 'yes']
+                paid : (Categorical) 2 unique value(s) - ['no' 'yes']
+                activities : (Categorical) 2 unique value(s) - ['no' 'yes']
+                nursery : (Categorical) 2 unique value(s) - ['no' 'yes']
+                higher : (Categorical) 2 unique value(s) - ['no' 'yes']
+                internet : (Categorical) 2 unique value(s) - ['no' 'yes']
+                romantic : (Categorical) 2 unique value(s) - ['no' 'yes']
+                famrel : (Categorical) 5 unique value(s) - [1 2 3 4 5]
+                freetime : (Categorical) 5 unique value(s) - [1 2 3 4 5]
+                goout : (Categorical) 5 unique value(s) - [1 2 3 4 5]
+                Dalc : (Categorical) 5 unique value(s) - [1 2 3 4 5]
+                Walc : (Categorical) 5 unique value(s) - [1 2 3 4 5]
+                health : (Categorical) 5 unique value(s) - [1 2 3 4 5]
+                absences : (Continuous) range of values -  [ 0 to 75]  { 34  values}
+                G1 : (Continuous) range of values -  [ 3 to 19]  { 17  values}
+                G2 : (Continuous) range of values -  [ 0 to 19]  { 17  values}
+                G3 : (Continuous) range of values -  [ 0 to 20]  { 18  values}
+            </pre>
+
+        <b>Numeric Columns:</b>
+            <br>age, traveltime, studytime, failures, absences, G1, G2, G3
+
+        <br><b>Categorical Columns:</b>
+            <br>school, sex, address, famsize, Pstatus, Medu, Fedu, Mjob, Fjob, reason, guardian, schoolsup, famsup,
+        paid, activities, nursery, higher, internet, romantic, famrel, freetime, goout, Dalc, Walc, health
+        <br>
+        <br/>Data for Portuguese language course Students:
+            <pre>
+                school : (Categorical) 2 unique value(s) - ['GP' 'MS']
+                sex : (Categorical) 2 unique value(s) - ['F' 'M']
+                age : (Categorical) 8 unique value(s) - [15 16 17 18 19 20 21 22]
+                address : (Categorical) 2 unique value(s) - ['R' 'U']
+                famsize : (Categorical) 2 unique value(s) - ['GT3' 'LE3']
+                Pstatus : (Categorical) 2 unique value(s) - ['A' 'T']
+                Medu : (Categorical) 5 unique value(s) - [0 1 2 3 4]
+                Fedu : (Categorical) 5 unique value(s) - [0 1 2 3 4]
+                Mjob : (Categorical) 5 unique value(s) - ['at_home' 'health' 'other' 'services' 'teacher']
+                Fjob : (Categorical) 5 unique value(s) - ['at_home' 'health' 'other' 'services' 'teacher']
+                reason : (Categorical) 4 unique value(s) - ['course' 'home' 'other' 'reputation']
+                guardian : (Categorical) 3 unique value(s) - ['father' 'mother' 'other']
+                traveltime : (Categorical) 4 unique value(s) - [1 2 3 4]
+                studytime : (Categorical) 4 unique value(s) - [1 2 3 4]
+                failures : (Categorical) 4 unique value(s) - [0 1 2 3]
+                schoolsup : (Categorical) 2 unique value(s) - ['no' 'yes']
+                famsup : (Categorical) 2 unique value(s) - ['no' 'yes']
+                paid : (Categorical) 2 unique value(s) - ['no' 'yes']
+                activities : (Categorical) 2 unique value(s) - ['no' 'yes']
+                nursery : (Categorical) 2 unique value(s) - ['no' 'yes']
+                higher : (Categorical) 2 unique value(s) - ['no' 'yes']
+                internet : (Categorical) 2 unique value(s) - ['no' 'yes']
+                romantic : (Categorical) 2 unique value(s) - ['no' 'yes']
+                famrel : (Categorical) 5 unique value(s) - [1 2 3 4 5]
+                freetime : (Categorical) 5 unique value(s) - [1 2 3 4 5]
+                goout : (Categorical) 5 unique value(s) - [1 2 3 4 5]
+                Dalc : (Categorical) 5 unique value(s) - [1 2 3 4 5]
+                Walc : (Categorical) 5 unique value(s) - [1 2 3 4 5]
+                health : (Categorical) 5 unique value(s) - [1 2 3 4 5]
+                absences : (Continuous) range of values -  [ 0 to 32]  { 24  values}
+                G1 : (Continuous) range of values -  [ 0 to 19]  { 17  values}
+                G2 : (Continuous) range of values -  [ 0 to 19]  { 16  values}
+                G3 : (Continuous) range of values -  [ 0 to 19]  { 17  values}
+            </pre>
+
+        <b>Numeric Columns:</b>
+        <br>age, traveltime, studytime, failures, absences, G1, G2, G3
+
+        <br><b>Categorical Columns:</b>
+        <br>school, sex, address, famsize, Pstatus, Medu, Fedu, Mjob, Fjob, reason, guardian, schoolsup, famsup,
+        paid, activities, nursery, higher, internet, romantic, famrel, freetime, goout, Dalc, Walc, health
+        <br>
+
+        <br><br>Checking for nulls we see we do not have any null values or n/a's. So we can move to our next step of feature expansion.
+        <br>
+
+        </p>
+
+        <h4>Feature Expansion
+            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/01_Data.ipynb" target="_blank">view jupyter notebook</a></span>
+        </h4>
+        <p>
+            In this step we will convert all our categorical columns to one hot encoded columns so we can perform machine learning algorithms on the data.
+            We can use the pandas category data type to store the data more efficiently and once hot encoded to accommodate the categorical variables.
+
+            <pre>
+                # Perform one hot encoding
+                def perform_one_hot_encoding(df,column):
+                    one_hot = pd.get_dummies(df[column],prefix=column+"_")
+                    df =  df.drop(column,axis=1)
+                    df =  df.join(one_hot)
+                    return df
+
+                def process_data_one_hot_encoding(data,categorical_columns):
+                    data_one_hot = data.copy()
+                    for column in categorical_columns:
+                        data_one_hot = perform_one_hot_encoding(data_one_hot,column)
+
+                    return data_one_hot
+            </pre>
+        </p>
+
+
+        <h4>Standardization (Z-score Normalization)
+            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/01_Data.ipynb" target="_blank">view jupyter notebook</a></span>
+        </h4>
+        <p>
+            Standardizing the features so that they are centered at 0 and a standard deviation of 1
+            is an important step before performing any machine learning algorithms.
+            Also we do not want to be comparing data points that have different units.
+        </p>
+
+
         <h4>Imputation</h4>
+        <p>
+            In the data cleaning step we saw that we do not have have any null values in our dataset so we do not need to do any data imputations to the dataset.
+
+
+        </p>
+
         <h4>Feature Selection</h4>
-        <h4>Data Visualization</h4>
+
+        <p>
+
+        </p>
     </div>
 </li>
