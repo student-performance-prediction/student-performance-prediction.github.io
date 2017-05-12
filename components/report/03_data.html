@@ -204,10 +204,31 @@
 
         </p>
 
-        <h4>Feature Selection</h4>
+        <h4>Feature Selection
+            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/01_Model.ipynb" target="_blank">view jupyter notebook</a></span>
+        </h4>
 
         <p>
+            In order to pick the best features for the machine learning models the scikit-learn package feature_selection was used.
 
+            <pre>
+                # Best features
+                def get_best_feature(num_of_features,x, y):
+                    features = fs.SelectKBest(fs.f_regression, k=num_of_features) #k is number of features.
+                    features.fit(x, y)
+
+                    selected_features = features.get_support()
+                    selected_features_columns =  x.columns[selected_features].values
+                    return selected_features_columns
+            </pre>
+
+            Doing feature selection on the students data for the math course we got the following features:
+        'age', 'failures', 'absences', 'Medu__4', 'Fedu__1', 'Fedu__4',
+        'reason__course', 'guardian__other', 'schoolsup__no',
+        'schoolsup__yes', 'paid__no', 'paid__yes', 'higher__no',
+        'higher__yes', 'romantic__no', 'romantic__yes', 'goout__2',
+        'goout__4', 'goout__5', 'Dalc__1'
+        <br>
         </p>
     </div>
 </li>

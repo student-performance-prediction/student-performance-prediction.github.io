@@ -1,1 +1,100 @@
-<li class="report-h1">Methodology</li>
+<li class="report-h1">
+    Methodology
+    <div class="report-section">
+
+        <h4>Split Data
+            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/03_Model.ipynb" target="_blank">view jupyter notebook</a></span>
+        </h4>
+        <p>
+            Split our dataset into train and test and analyze the splits. We can explore and verify the matrix of classes to check if our data is balanced.
+
+            <pre>
+                x = student_mat_normalized[predictors]
+                y = student_mat_normalized[response].values.ravel()
+
+                x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1234)
+            </pre>
+
+            <pre>
+                Train data:  (276, 88)
+                Test data:  (119, 88)
+                Train class 0: 91, train class 1: 185
+                Test class 0: 39, test class 1: 80
+            </pre>
+
+            From the above data we know our data is imbalanced
+        </p>
+
+
+        <h4>Base Models
+            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/03_Model.ipynb#build_base_model" target="_blank">view jupyter notebook</a></span>
+        </h4>
+        <p>
+            First let us start with various classification models with their default parameters.
+            This will help us set a baseline performance metrics.
+            We can compare the baseline performance and then tune a few selected models to improve performance.
+            The various models we will consider for our baseline evaluation are:
+            <ul>
+        <li><b>Logistic Regression - Weighted and Unweighted</b>
+        </li>
+                <li><b>Linear Discriminant Analysis</b></li>
+        <li><b>Quadratic Discriminant Analysis</b></li>
+        <li><b>Decision Trees</b></li>
+        <li><b>Random Forest</b></li>
+        <li><b>Support Vector Classification</b></li>
+        <li><b>K-Nearest Neighbors</b></li>
+            </ul>
+        </p>
+
+
+
+
+
+        <h4>Performance Metrics</h4>
+        <p>
+
+        </p>
+
+
+
+
+
+        <h4>Understand Classification Models</h4>
+        <p>
+            Since we are working with a classification problem, understanding the various classification models and how they work is an important step before we start tuning the models[3].
+            <br>Comparing Classification Models based on:
+            <ul>
+                <li><b>Memory requirement for various classification model</b>
+                    <ul>
+                        <li><b>KNN:</b>
+                            Requires the entire training set to be stored in the memory if we are considering the naivest way to perform a lookup. So the memory requirement of KNN will be high and will be dependent on the training set size<li><b>Logistic Regression</b>
+                        Only stores the coefficients of the predictors, so the memory requirements will be relatively low. But can get high depending on number of predictors.
+                    </li><li><b>LDA / QDA</b>
+                        Only stores the estimates of the center and spread/variance of the normal distribution of each predictor. So the memory requirements will be relatively low. But can get high depending on number of predictors.
+                    </li><li><b>Decision Trees</b>
+                        Stores the rules that determine the splits and the various node details. The memory requirement can get high if the depth of tree is very large.
+                    </li><li><b>SVC</b>
+                        Stores only the support vector points - Points that describe the decision boundary. In SVC we need to  only store a small number of support vectors and therefore the memory requirement for this machine learning algorithm is very small and makes SVM a preferred choice as a classification model
+                    </li>
+                    </ul>
+                </li>
+                <li><b>Cost of making predictions for various classification model</b>
+                    <ul>
+                        <li><b>KNN:</b>
+                            Needs to look at every data point in the training set to find the nearest neighbors. So this method is computationally heavy
+                        </li><li><b>Logistic Regression: </b>
+                        Needs to find the dot products of coefficients with the predictors and then compute the sign of the scores.
+                    </li><li><b>LDA / QDA:</b>
+                        For each predictor data point, we plug in the value based on the equation using the center and variance of the predictors distribution. Check if one quantity is less than the other. This would be computationally heavy based on the number of predictors and number of data points
+                    </li><li><b>Decision Trees:</b>
+                        We need to traverse the entire tree with the predictor points we need to use to classify. Depending on the size of the tree this can get computationally heavy
+                    </li><li><b>SVC:</b>
+                        Compare new points to the support vector points and decide on the prediction. Computationally this is light compared to other models. However it should be noted the intial cost of fitting a model is extremely high
+                    </li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+        </p>
+    </div>
+</li>

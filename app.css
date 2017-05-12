@@ -4,12 +4,12 @@ html {
     padding: 0;
 }
 body{
-    /*height:100%;*/
+    margin-top: 65px;
     background: #ececec;
     font-size: 14px;
 }
 .body-content{
-    margin-top: 50px;
+    /*margin-top: 50px;*/
     position: relative;
 }
 
