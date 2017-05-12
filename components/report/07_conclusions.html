@@ -1,1 +1,60 @@
-<li class="report-h1">Conclusions</li>
+<li class="report-h1">Conclusions
+
+    <div class="report-section">
+        <p>
+            <br>
+            <b>Predictive Model Summary</b>
+            <br>
+            The goal was to build a Predictive Model to be able to accurately predict students who will pass a specific class given a set of features.
+            The assumption of a passing grade was assumed as any score > 10.
+            The model was to have a high accuracy in claas 0, class 1, and over all accuracy.
+            In order to achieve this we came up with three different models specific for each classes accuracy.
+
+
+            After building multiple classification models and tuning them for the best performance,
+            the best performing model were Logistic Regression with weighted class weights or Random Forest.
+            Logistic regression performed extremely well in class 0 and class 1 accuracies.
+            Logistic regression also performed well in both the Math class data set and the Portuguese language class data set.
+            Random Forest performed better than Logistic regression on the over accuracy on the Portuguese language class data set.
+
+
+            <br>
+            <br>
+            <b>Data Exploration Summary</b>
+            <br>
+            Some interesting findings from the data were:
+            <ul>
+        <li>Fathers eduction and mothers education of the child were highly correlated.
+            This could be because in Portugal couples marry withing their education level or class in the society</li>
+        <li>
+            The number of past class failures caused the grades to drop. The high negative correlation showed this.
+        </li>
+
+        <li>
+            Fathers eduction and mothers education level had a positive correlation to child's grade.
+            This could be because the the well educated parents could be helping the child at home.
+            Thus scoring better grades
+        </li>
+
+        <li>
+            Fathers eduction and mothers education level had a negative correlation with failures.
+            This comes back the last point where the educated parents are helping the kid at home to get better grades and hence less failures
+        </li>
+
+        <li>
+            Workday alcohol consumption and weekend alcohol consumption are positively correlated showing that
+             kids who drink in the work day also drink on weekend
+        </li>
+
+        <li>
+            Going out and consuming alcohol are positively correlated showing that kids get alcohol mostly from going out
+        </li>
+
+    </ul>
+
+            <br>
+        </p>
+
+    </div>
+
+</li>

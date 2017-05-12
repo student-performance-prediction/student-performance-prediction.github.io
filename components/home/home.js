@@ -13,6 +13,11 @@
                 controllerAs: 'homeCtrl'
             });
 
+            $stateProvider.state('about', {
+                url: '/about',
+                templateUrl: 'components/home/about.html?'+ticks
+            });
+
             $urlRouterProvider.otherwise('/');
 
         })

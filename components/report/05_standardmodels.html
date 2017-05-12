@@ -1,8 +1,169 @@
 <li class="report-h1">Model Tuning
     <div class="report-section">
-        <h4>Logistic Regression</h4>
+        <p>
+            Looking at the performance from the Performance Metrics, we pick Logistic Regression and Random Forest to continue our model evaluation and find the best tuned model.
+        </p>
 
-        <h4>Random Forest</h4>
+        <h4>Logistic Regression
+            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/03_Model.ipynb" target="_blank">view jupyter notebook</a></span>
+        </h4>
+        <p>
+            Multiple iterations were run to optimize the model parameters.
+<br>
+            <b>Logistic with all features</b>
+            <br>
+            <img class="img-responsive" src="components/report/logistic01.png">
 
+            <pre>
+Tuning params for Logistic Regression with all features:
+Best Class 1 accuracy is for L1 and C:  0.02  Class 1:  0.825  Class 0:  0.38462
+Best Class 1 accuracy is for L2 and C:  1e-08  Class 1:  0.7875  Class 0:  0.46154
+    </pre>
+
+            <b>Logistic with top 30 features</b>
+            <br>
+            <img class="img-responsive" src="components/report/logistic02.png">
+        <pre>
+Tuning params for Logistic Regression with top 30 features:
+Best Class 1 accuracy is for L1 and C:  0.02  Class 1:  0.825  Class 0:  0.38462
+Best Class 1 accuracy is for L2 and C:  1e-08  Class 1:  0.775  Class 0:  0.48718
+    </pre>
+
+
+            <b>Logistic with top 20 features</b>
+            <br>
+            <img class="img-responsive" src="components/report/logistic03.png">
+        <pre>
+Tuning params for Logistic Regression with top 20 features:
+Best Class 1 accuracy is for L1 and C:  0.02  Class 1:  0.825  Class 0:  0.38462
+Best Class 1 accuracy is for L2 and C:  1e-08  Class 1:  0.775  Class 0:  0.48718
+    </pre>
+
+        </p>
+
+        <h4>Random Forest
+            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/03_Model.ipynb" target="_blank">view jupyter notebook</a></span>
+        </h4>
+        <p>
+            <div ><b>Tuning parameters for random forests</b>
+        <p>There are some important parameters for random forest that help in fine-tuning the results of the random forest models.
+        Some of the tuning parameters considered for tuning were:</p>
+        <ul>
+            <li>Node size: In random forest since the forest are allowed to grow without pruning, the trees can have very few observations in the leaf nodes. In order to reduce the bias as much as possible we can control the node size by setting the 'min_samples_leaf' parameter in the random forest classifier</li>
+            <li>Number of trees: The number of trees is usually set to large number like a few hundrudes. The parameter to set to control number of trees is 'n_estimators'. The ideal value for the number of trees will depend on the number of observations and predictors in our dataset.</li>
+            <li>Number of predictors sampled: This parameter is important in determining how the tree grows independently and not being biased to just one or a few predictors. The parameter is set by using the 'max_features' argument.</li>
+            <li>Maximum depth: This argument determines the maximum depth of the tree. This argument controls if we want to expand the tree down so that we have all our leaves as pure nodes.</li>
+            <li>OOB score: The OOB score is set to True or False. It determines whether to use out-of-bag samples to estimate the generalization accuracy or not</li>
+        </ul>
+<br>
+        <pre>
+            Performance:
+            Random Forest 1:  Accuracy Class 1: 0.725  Class 0: 0.435897435897
+            Random Forest 2:  Accuracy Class 1: 0.7625  Class 0: 0.410256410256
+            Random Forest 3:  Accuracy Class 1: 0.7625  Class 0: 0.410256410256
+            Random Forest 4:  Accuracy Class 1: 0.7625  Class 0: 0.384615384615
+            Random Forest 5:  Accuracy Class 1: 0.75  Class 0: 0.435897435897
+            Random Forest 6:  Accuracy Class 1: 0.75  Class 0: 0.384615384615
+            Random Forest 7:  Accuracy Class 1: 0.7125  Class 0: 0.512820512821
+            Random Forest 8:  Accuracy Class 1: 0.725  Class 0: 0.435897435897
+        </pre>
+    </div>
+        </p>
+
+
+    <h4>All Tuned Models
+        <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/03_Model.ipynb" target="_blank">view jupyter notebook</a></span>
+    </h4>
+    <p>
+        We have tuned 80 models in total combining all the Logistic Regression and Random Forest models that were tuned,
+        we can compare their performance to pick the best model.
+        But in the next step we will perform cross validation on these models to make sure they can be generalized and perform great on any data set.
+        <br>
+        <img class="img-responsive" src="components/report/allmodels.png">
+
+    </p>
+
+
+    <h4>Performing Cross Validation
+        <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/03_Model.ipynb" target="_blank">view jupyter notebook</a></span>
+    </h4>
+    <p>
+        In this step we will perform k fold cross validation on the all the tuned models.
+        This steps ensures that we have generalized results independent of data sets.
+        Once we perform cross validation, then we can select the best performing models.
+        <br>
+
+        <pre>
+        def cross_validate_model(model,x,y,k):
+            total_rows = x.shape[0]
+            # Create a k-fold split using sklearn
+            kf = KFold(total_rows, n_folds=k)
+            k_index = 0
+            model_scores = []
+            for train_index, test_index in kf:
+                k_index = k_index +1
+                x_train = x.values[train_index,:]
+                x_test = x.values[test_index,:]
+
+                y_train = y[train_index]
+                y_test = y[test_index]
+
+                # Fit model
+                model.fit(x_train, y_train)
+                model_score = score(model, x_test, y_test)
+                model_scores.append(model_score)
+
+            scores_df = pd.concat(model_scores, axis=1)
+            return scores_df.mean(axis=1)
+    </pre>
+
+    <pre>
+        # Perform k fold cross validations on all the top models
+        k = 8
+        tune_params['cv_class0'] = 0.0
+        tune_params['cv_class1'] = 0.0
+        tune_params['cv_overall'] = 0.0
+
+        # x = student_mat_normalized.values[:, :-1]
+        # y = student_mat_normalized.values[:, -1]
+
+        y = student_mat_normalized[response].values.ravel()
+
+        for index, row in tune_params.iterrows():
+            #print row['x_index'],models[row['x_index']],feature_list[row['x_index']]
+            if len(feature_list[row['x_index']]) == 0:
+                x = student_mat_normalized[predictors]
+            else:
+                x = student_mat_normalized[feature_list[row['x_index']]]
+            model_scores = cross_validate_model(models[row['x_index']],x,y,k)
+            tune_params.set_value(index, 'cv_class0', model_scores.iloc[1])
+            tune_params.set_value(index, 'cv_class1', model_scores.iloc[2])
+            tune_params.set_value(index, 'cv_overall', model_scores.iloc[0])
+
+        tune_params.head()
+    </pre>
+
+    <br>
+
+       After performing cross validation we can view the results of all the 80 models:
+
+        <br>
+        <img class="img-responsive" src="components/report/allmodels02.png">
+
+    </p>
+
+
+    <h4>Model Building - Portuguese Language Class
+        <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/03_Model.ipynb" target="_blank">view jupyter notebook</a></span>
+    </h4>
+
+    <p>Here we will build predictive models for the Portuguese language class students.
+        Every step followed will be the same as the one in the Match Class data set.
+    The final cross validated results are shown here:
+        <img class="img-responsive" src="components/report/allmodels03.png">
+    </p>
+
+
+        <br>
     </div>
 </li>

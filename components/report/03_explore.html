@@ -1,6 +1,266 @@
 <li class="report-h1">
     Explore Data
     <div class="report-section">
-        <h4>Data Exploration</h4>
+        <h4>Describe Numerical Features
+            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/02_Explore.ipynb" target="_blank">view jupyter notebook</a></span>
+        </h4>
+
+        <p>
+            <b>Math course</b>
+            <div>
+                <table class="table table-striped table-hover ">
+            <thead>
+            <tr style="text-align: right;">
+                <th></th>
+                <th>age</th>
+                <th>traveltime</th>
+                <th>studytime</th>
+                <th>failures</th>
+                <th>absences</th>
+                <th>G1</th>
+                <th>G2</th>
+                <th>G3</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>count</th>
+                <td>395.000000</td>
+                <td>395.000000</td>
+                <td>395.000000</td>
+                <td>395.000000</td>
+                <td>395.000000</td>
+                <td>395.000000</td>
+                <td>395.000000</td>
+                <td>395.000000</td>
+            </tr>
+            <tr>
+                <th>mean</th>
+                <td>16.696203</td>
+                <td>1.448101</td>
+                <td>2.035443</td>
+                <td>0.334177</td>
+                <td>5.708861</td>
+                <td>10.908861</td>
+                <td>10.713924</td>
+                <td>10.415190</td>
+            </tr>
+            <tr>
+                <th>std</th>
+                <td>1.276043</td>
+                <td>0.697505</td>
+                <td>0.839240</td>
+                <td>0.743651</td>
+                <td>8.003096</td>
+                <td>3.319195</td>
+                <td>3.761505</td>
+                <td>4.581443</td>
+            </tr>
+            <tr>
+                <th>min</th>
+                <td>15.000000</td>
+                <td>1.000000</td>
+                <td>1.000000</td>
+                <td>0.000000</td>
+                <td>0.000000</td>
+                <td>3.000000</td>
+                <td>0.000000</td>
+                <td>0.000000</td>
+            </tr>
+            <tr>
+                <th>25%</th>
+                <td>16.000000</td>
+                <td>1.000000</td>
+                <td>1.000000</td>
+                <td>0.000000</td>
+                <td>0.000000</td>
+                <td>8.000000</td>
+                <td>9.000000</td>
+                <td>8.000000</td>
+            </tr>
+            <tr>
+                <th>50%</th>
+                <td>17.000000</td>
+                <td>1.000000</td>
+                <td>2.000000</td>
+                <td>0.000000</td>
+                <td>4.000000</td>
+                <td>11.000000</td>
+                <td>11.000000</td>
+                <td>11.000000</td>
+            </tr>
+            <tr>
+                <th>75%</th>
+                <td>18.000000</td>
+                <td>2.000000</td>
+                <td>2.000000</td>
+                <td>0.000000</td>
+                <td>8.000000</td>
+                <td>13.000000</td>
+                <td>13.000000</td>
+                <td>14.000000</td>
+            </tr>
+            <tr>
+                <th>max</th>
+                <td>22.000000</td>
+                <td>4.000000</td>
+                <td>4.000000</td>
+                <td>3.000000</td>
+                <td>75.000000</td>
+                <td>19.000000</td>
+                <td>19.000000</td>
+                <td>20.000000</td>
+            </tr>
+            </tbody>
+        </table>
+            </div>
+
+        <br>
+
+        <b>Portuguese language course</b>
+            <div>
+                <table class="table table-striped table-hover ">
+                    <thead>
+                    <tr style="text-align: right;">
+                        <th></th>
+                        <th>age</th>
+                        <th>traveltime</th>
+                        <th>studytime</th>
+                        <th>failures</th>
+                        <th>absences</th>
+                        <th>G1</th>
+                        <th>G2</th>
+                        <th>G3</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>count</th>
+                        <td>649.000000</td>
+                        <td>649.000000</td>
+                        <td>649.000000</td>
+                        <td>649.000000</td>
+                        <td>649.000000</td>
+                        <td>649.000000</td>
+                        <td>649.000000</td>
+                        <td>649.000000</td>
+                    </tr>
+                    <tr>
+                        <th>mean</th>
+                        <td>16.744222</td>
+                        <td>1.568567</td>
+                        <td>1.930663</td>
+                        <td>0.221880</td>
+                        <td>3.659476</td>
+                        <td>11.399076</td>
+                        <td>11.570108</td>
+                        <td>11.906009</td>
+                    </tr>
+                    <tr>
+                        <th>std</th>
+                        <td>1.218138</td>
+                        <td>0.748660</td>
+                        <td>0.829510</td>
+                        <td>0.593235</td>
+                        <td>4.640759</td>
+                        <td>2.745265</td>
+                        <td>2.913639</td>
+                        <td>3.230656</td>
+                    </tr>
+                    <tr>
+                        <th>min</th>
+                        <td>15.000000</td>
+                        <td>1.000000</td>
+                        <td>1.000000</td>
+                        <td>0.000000</td>
+                        <td>0.000000</td>
+                        <td>0.000000</td>
+                        <td>0.000000</td>
+                        <td>0.000000</td>
+                    </tr>
+                    <tr>
+                        <th>25%</th>
+                        <td>16.000000</td>
+                        <td>1.000000</td>
+                        <td>1.000000</td>
+                        <td>0.000000</td>
+                        <td>0.000000</td>
+                        <td>10.000000</td>
+                        <td>10.000000</td>
+                        <td>10.000000</td>
+                    </tr>
+                    <tr>
+                        <th>50%</th>
+                        <td>17.000000</td>
+                        <td>1.000000</td>
+                        <td>2.000000</td>
+                        <td>0.000000</td>
+                        <td>2.000000</td>
+                        <td>11.000000</td>
+                        <td>11.000000</td>
+                        <td>12.000000</td>
+                    </tr>
+                    <tr>
+                        <th>75%</th>
+                        <td>18.000000</td>
+                        <td>2.000000</td>
+                        <td>2.000000</td>
+                        <td>0.000000</td>
+                        <td>6.000000</td>
+                        <td>13.000000</td>
+                        <td>13.000000</td>
+                        <td>14.000000</td>
+                    </tr>
+                    <tr>
+                        <th>max</th>
+                        <td>22.000000</td>
+                        <td>4.000000</td>
+                        <td>4.000000</td>
+                        <td>3.000000</td>
+                        <td>32.000000</td>
+                        <td>19.000000</td>
+                        <td>19.000000</td>
+                        <td>19.000000</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </p>
+
+
+        <h4>Analyse Numerical Features
+            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/02_Explore.ipynb" target="_blank">view jupyter notebook</a></span>
+        </h4>
+
+        <p>
+
+            <img class="img-responsive" src="components/report/numericalcols.png">
+        </p>
+
+
+        <h4>Correlation of Features
+            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/02_Explore.ipynb" target="_blank">view jupyter notebook</a></span>
+        </h4>
+
+        <p>
+            <img class="img-responsive" src="components/report/correlation.png">
+
+            <br>
+            <div><p>From the correlation matrix we can see that </p>
+        <ul>
+            <li>Fedu and Medu have a high positive correlation</li>
+            <li>Failures and all Grades have a high negative correlation</li>
+            <li>Fedu and Medu has some possitve correlation with grades</li>
+            <li>The Grades are highly correlated to each other which makes sense as students will moslty perform in the same grade range for all exams</li>
+            <li>Failure and age has a possitve correlation</li>
+            <li>Fedu and Medu has a negative correlation with failures</li>
+            <li>Fedu and Medu has a negative correlation with traveltime</li>
+            <li>Walc and Dalc has high positive correlation</li>
+            <li>goout has a high positive correlation with walc and dalc</li>
+        </ul>
+
+    </div>
+        </p>
+<br>
     </div>
 </li>

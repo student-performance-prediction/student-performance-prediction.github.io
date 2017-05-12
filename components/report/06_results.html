@@ -1,1 +1,531 @@
-<li class="report-h1">Results</li>
+<li class="report-h1">Results
+    <div class="report-section">
+
+        <h4>Select Top Performing Models
+            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/03_Model.ipynb" target="_blank">view jupyter notebook</a></span>
+        </h4>
+        <p>
+            From the accuracy scores from the previous steps we can pick three models as our final models
+        <ul>
+            <li>A model that performs well overall on both class 0 and class 1 predictions</li>
+            <li>A model that performs well on class 0 predictions</li>
+            <li>A model that performs well on class 1 predictions</li>
+        </ul>
+
+        <br>
+        <b>Best Models for Overall Accuracy - Math Class</b>
+
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr style="text-align: right;">
+                <th></th>
+                <th>x_index</th>
+                <th>Model</th>
+                <th>class0</th>
+                <th>class1</th>
+                <th>overall</th>
+                <th>cv_class0</th>
+                <th>cv_class1</th>
+                <th>cv_overall</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>40</th>
+                <td>40</td>
+                <td>Logistic l1/0.02</td>
+                <td>0.384615</td>
+                <td>0.825</td>
+                <td>0.680672</td>
+                <td>0.386764</td>
+                <td>0.883185</td>
+                <td>0.72398</td>
+            </tr>
+            <tr>
+                <th>16</th>
+                <td>16</td>
+                <td>Logistic l1/0.02</td>
+                <td>0.384615</td>
+                <td>0.825</td>
+                <td>0.680672</td>
+                <td>0.386764</td>
+                <td>0.883185</td>
+                <td>0.72398</td>
+            </tr>
+            <tr>
+                <th>44</th>
+                <td>44</td>
+                <td>Logistic l1/0.04</td>
+                <td>0.384615</td>
+                <td>0.825</td>
+                <td>0.680672</td>
+                <td>0.386764</td>
+                <td>0.883185</td>
+                <td>0.72398</td>
+            </tr>
+            <tr>
+                <th>42</th>
+                <td>42</td>
+                <td>Logistic l1/0.03</td>
+                <td>0.384615</td>
+                <td>0.825</td>
+                <td>0.680672</td>
+                <td>0.386764</td>
+                <td>0.883185</td>
+                <td>0.72398</td>
+            </tr>
+            <tr>
+                <th>66</th>
+                <td>66</td>
+                <td>Logistic l1/0.03</td>
+                <td>0.384615</td>
+                <td>0.825</td>
+                <td>0.680672</td>
+                <td>0.386764</td>
+                <td>0.883185</td>
+                <td>0.72398</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <b>Best Model #40:</b>
+        <br>
+        LogisticRegression(C=0.02, class_weight='balanced', dual=False,
+        fit_intercept=True, intercept_scaling=1, max_iter=100,
+        multi_class='ovr', n_jobs=1, penalty='l1', random_state=None,
+        solver='liblinear', tol=0.0001, verbose=0, warm_start=False)
+        <br>
+        <img class="img-responsive" src="components/report/conf01.png">
+
+        <br>
+        <b>Best Models for Class 0 Accuracy - Math Class</b>
+
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr style="text-align: right;">
+                <th></th>
+                <th>x_index</th>
+                <th>Model</th>
+                <th>class0</th>
+                <th>class1</th>
+                <th>overall</th>
+                <th>cv_class0</th>
+                <th>cv_class1</th>
+                <th>cv_overall</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>38</th>
+                <td>38</td>
+                <td>Logistic l1/0.015</td>
+                <td>1.000000</td>
+                <td>0.0000</td>
+                <td>0.327731</td>
+                <td>0.803571</td>
+                <td>0.200397</td>
+                <td>0.417653</td>
+            </tr>
+            <tr>
+                <th>62</th>
+                <td>62</td>
+                <td>Logistic l1/0.015</td>
+                <td>1.000000</td>
+                <td>0.0000</td>
+                <td>0.327731</td>
+                <td>0.803571</td>
+                <td>0.200397</td>
+                <td>0.417653</td>
+            </tr>
+            <tr>
+                <th>14</th>
+                <td>14</td>
+                <td>Logistic l1/0.015</td>
+                <td>1.000000</td>
+                <td>0.0000</td>
+                <td>0.327731</td>
+                <td>0.803571</td>
+                <td>0.200397</td>
+                <td>0.417653</td>
+            </tr>
+            <tr>
+                <th>47</th>
+                <td>47</td>
+                <td>Logistic l2/0.08</td>
+                <td>0.538462</td>
+                <td>0.6625</td>
+                <td>0.621849</td>
+                <td>0.575752</td>
+                <td>0.752172</td>
+                <td>0.698418</td>
+            </tr>
+            <tr>
+                <th>45</th>
+                <td>45</td>
+                <td>Logistic l2/0.04</td>
+                <td>0.538462</td>
+                <td>0.6875</td>
+                <td>0.638655</td>
+                <td>0.562594</td>
+                <td>0.752867</td>
+                <td>0.693469</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <b>Best Model #38:</b>
+        <br>
+        LogisticRegression(C=0.015, class_weight='balanced', dual=False,
+        fit_intercept=True, intercept_scaling=1, max_iter=100,
+        multi_class='ovr', n_jobs=1, penalty='l1', random_state=None,
+        solver='liblinear', tol=0.0001, verbose=0, warm_start=False)
+        <br>
+        <img class="img-responsive" src="components/report/conf02.png">
+
+        <br>
+        <b>Best Models for Class 1 Accuracy - Math Class</b>
+
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr style="text-align: right;">
+                <th></th>
+                <th>x_index</th>
+                <th>Model</th>
+                <th>class0</th>
+                <th>class1</th>
+                <th>overall</th>
+                <th>cv_class0</th>
+                <th>cv_class1</th>
+                <th>cv_overall</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>40</th>
+                <td>40</td>
+                <td>Logistic l1/0.02</td>
+                <td>0.384615</td>
+                <td>0.825</td>
+                <td>0.680672</td>
+                <td>0.386764</td>
+                <td>0.883185</td>
+                <td>0.72398</td>
+            </tr>
+            <tr>
+                <th>42</th>
+                <td>42</td>
+                <td>Logistic l1/0.03</td>
+                <td>0.384615</td>
+                <td>0.825</td>
+                <td>0.680672</td>
+                <td>0.386764</td>
+                <td>0.883185</td>
+                <td>0.72398</td>
+            </tr>
+            <tr>
+                <th>64</th>
+                <td>64</td>
+                <td>Logistic l1/0.02</td>
+                <td>0.384615</td>
+                <td>0.825</td>
+                <td>0.680672</td>
+                <td>0.386764</td>
+                <td>0.883185</td>
+                <td>0.72398</td>
+            </tr>
+            <tr>
+                <th>44</th>
+                <td>44</td>
+                <td>Logistic l1/0.04</td>
+                <td>0.384615</td>
+                <td>0.825</td>
+                <td>0.680672</td>
+                <td>0.386764</td>
+                <td>0.883185</td>
+                <td>0.72398</td>
+            </tr>
+            <tr>
+                <th>20</th>
+                <td>20</td>
+                <td>Logistic l1/0.04</td>
+                <td>0.384615</td>
+                <td>0.825</td>
+                <td>0.680672</td>
+                <td>0.386764</td>
+                <td>0.883185</td>
+                <td>0.72398</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <b>Best Model #40:</b>
+        <br>
+        LogisticRegression(C=0.02, class_weight='balanced', dual=False,
+        fit_intercept=True, intercept_scaling=1, max_iter=100,
+        multi_class='ovr', n_jobs=1, penalty='l1', random_state=None,
+        solver='liblinear', tol=0.0001, verbose=0, warm_start=False)
+        <br>
+        <img class="img-responsive" src="components/report/conf03.png">
+
+        <br>
+        <b>Best Models for Overall Accuracy - Portuguese Language Class</b>
+
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr style="text-align: right;">
+                <th></th>
+                <th>x_index</th>
+                <th>Model</th>
+                <th>class0</th>
+                <th>class1</th>
+                <th>overall</th>
+                <th>cv_class0</th>
+                <th>cv_class1</th>
+                <th>cv_overall</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>74</th>
+                <td>74</td>
+                <td>Random Forest 3</td>
+                <td>0.636364</td>
+                <td>0.851852</td>
+                <td>0.815385</td>
+                <td>0.505506</td>
+                <td>0.884790</td>
+                <td>0.847260</td>
+            </tr>
+            <tr>
+                <th>40</th>
+                <td>40</td>
+                <td>Logistic l1/0.02</td>
+                <td>0.545455</td>
+                <td>0.888889</td>
+                <td>0.830769</td>
+                <td>0.466220</td>
+                <td>0.902261</td>
+                <td>0.842668</td>
+            </tr>
+            <tr>
+                <th>16</th>
+                <td>16</td>
+                <td>Logistic l1/0.02</td>
+                <td>0.545455</td>
+                <td>0.888889</td>
+                <td>0.830769</td>
+                <td>0.466220</td>
+                <td>0.902261</td>
+                <td>0.842668</td>
+            </tr>
+            <tr>
+                <th>64</th>
+                <td>64</td>
+                <td>Logistic l1/0.02</td>
+                <td>0.545455</td>
+                <td>0.888889</td>
+                <td>0.830769</td>
+                <td>0.466220</td>
+                <td>0.902261</td>
+                <td>0.842668</td>
+            </tr>
+            <tr>
+                <th>62</th>
+                <td>62</td>
+                <td>Logistic l1/0.015</td>
+                <td>0.545455</td>
+                <td>0.888889</td>
+                <td>0.830769</td>
+                <td>0.466220</td>
+                <td>0.902261</td>
+                <td>0.842668</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <b>Best Model #74:</b>
+        <br>
+        RandomForestClassifier(bootstrap=True, class_weight='balanced',
+        criterion='gini', max_depth=31, max_features=None,
+        max_leaf_nodes=None, min_samples_leaf=5, min_samples_split=2,
+        min_weight_fraction_leaf=0.0, n_estimators=500, n_jobs=1,
+        oob_score=False, random_state=None, verbose=0,
+        warm_start=False)
+        <br>
+        <img class="img-responsive" src="components/report/conf04.png">
+
+        <br>
+        <b>Best Models for Class 0 Accuracy - Portuguese Language Class</b>
+
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr style="text-align: right;">
+                <th></th>
+                <th>x_index</th>
+                <th>Model</th>
+                <th>class0</th>
+                <th>class1</th>
+                <th>overall</th>
+                <th>cv_class0</th>
+                <th>cv_class1</th>
+                <th>cv_overall</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>70</th>
+                <td>70</td>
+                <td>Logistic l1/0.08</td>
+                <td>0.727273</td>
+                <td>0.796296</td>
+                <td>0.784615</td>
+                <td>0.614583</td>
+                <td>0.719106</td>
+                <td>0.756229</td>
+            </tr>
+            <tr>
+                <th>17</th>
+                <td>17</td>
+                <td>Logistic l2/0.02</td>
+                <td>0.696970</td>
+                <td>0.802469</td>
+                <td>0.784615</td>
+                <td>0.596726</td>
+                <td>0.803055</td>
+                <td>0.802526</td>
+            </tr>
+            <tr>
+                <th>22</th>
+                <td>22</td>
+                <td>Logistic l1/0.08</td>
+                <td>0.757576</td>
+                <td>0.759259</td>
+                <td>0.758974</td>
+                <td>0.595982</td>
+                <td>0.742651</td>
+                <td>0.767051</td>
+            </tr>
+            <tr>
+                <th>46</th>
+                <td>46</td>
+                <td>Logistic l1/0.08</td>
+                <td>0.757576</td>
+                <td>0.759259</td>
+                <td>0.758974</td>
+                <td>0.595982</td>
+                <td>0.734088</td>
+                <td>0.760878</td>
+            </tr>
+            <tr>
+                <th>31</th>
+                <td>31</td>
+                <td>Logistic l2/1e-05</td>
+                <td>0.727273</td>
+                <td>0.765432</td>
+                <td>0.758974</td>
+                <td>0.589435</td>
+                <td>0.806725</td>
+                <td>0.801001</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <b>Best Model #70:</b>
+        <br>
+        LogisticRegression(C=0.08, class_weight='balanced', dual=False,
+        fit_intercept=True, intercept_scaling=1, max_iter=100,
+        multi_class='ovr', n_jobs=1, penalty='l1', random_state=None,
+        solver='liblinear', tol=0.0001, verbose=0, warm_start=False)
+        <br>
+        <img class="img-responsive" src="components/report/conf05.png">
+
+        <br>
+        <b>Best Models for Class 1 Accuracy - Portuguese Language Class</b>
+
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr style="text-align: right;">
+                <th></th>
+                <th>x_index</th>
+                <th>Model</th>
+                <th>class0</th>
+                <th>class1</th>
+                <th>overall</th>
+                <th>cv_class0</th>
+                <th>cv_class1</th>
+                <th>cv_overall</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>40</th>
+                <td>40</td>
+                <td>Logistic l1/0.02</td>
+                <td>0.545455</td>
+                <td>0.888889</td>
+                <td>0.830769</td>
+                <td>0.46622</td>
+                <td>0.902261</td>
+                <td>0.842668</td>
+            </tr>
+            <tr>
+                <th>64</th>
+                <td>64</td>
+                <td>Logistic l1/0.02</td>
+                <td>0.545455</td>
+                <td>0.888889</td>
+                <td>0.830769</td>
+                <td>0.46622</td>
+                <td>0.902261</td>
+                <td>0.842668</td>
+            </tr>
+            <tr>
+                <th>38</th>
+                <td>38</td>
+                <td>Logistic l1/0.015</td>
+                <td>0.545455</td>
+                <td>0.888889</td>
+                <td>0.830769</td>
+                <td>0.46622</td>
+                <td>0.902261</td>
+                <td>0.842668</td>
+            </tr>
+            <tr>
+                <th>16</th>
+                <td>16</td>
+                <td>Logistic l1/0.02</td>
+                <td>0.545455</td>
+                <td>0.888889</td>
+                <td>0.830769</td>
+                <td>0.46622</td>
+                <td>0.902261</td>
+                <td>0.842668</td>
+            </tr>
+            <tr>
+                <th>14</th>
+                <td>14</td>
+                <td>Logistic l1/0.015</td>
+                <td>0.545455</td>
+                <td>0.888889</td>
+                <td>0.830769</td>
+                <td>0.46622</td>
+                <td>0.902261</td>
+                <td>0.842668</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <b>Best Model #40:</b>
+        <br>
+        LogisticRegression(C=0.02, class_weight='balanced', dual=False,
+        fit_intercept=True, intercept_scaling=1, max_iter=100,
+        multi_class='ovr', n_jobs=1, penalty='l1', random_state=None,
+        solver='liblinear', tol=0.0001, verbose=0, warm_start=False)
+        <br>
+        <img class="img-responsive" src="components/report/conf06.png">
+
+        </p>
+
+        <br>
+    </div>
+</li>

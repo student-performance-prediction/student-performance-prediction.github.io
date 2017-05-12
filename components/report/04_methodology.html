@@ -1,5 +1,5 @@
 <li class="report-h1">
-    Methodology
+    Build Base Models
     <div class="report-section">
 
         <h4>Split Data
@@ -27,7 +27,7 @@
 
 
         <h4>Base Models
-            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/03_Model.ipynb#build_base_model" target="_blank">view jupyter notebook</a></span>
+            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/03_Model.ipynb" target="_blank">view jupyter notebook</a></span>
         </h4>
         <p>
             First let us start with various classification models with their default parameters.
@@ -50,16 +50,72 @@
 
 
 
-        <h4>Performance Metrics</h4>
+        <h4>Performance Metrics
+            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/03_Model.ipynb" target="_blank">view jupyter notebook</a></span>
+        </h4>
         <p>
+            Our performance metric will be to build a model which has results that are better than the base models
 
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr style="text-align: right;">
+                <th></th>
+                <th>KNN</th>
+                <th>LDA</th>
+                <th>QDA</th>
+                <th>RF</th>
+                <th>SVC</th>
+                <th>Tree</th>
+                <th>Unweighted Logistic</th>
+                <th>Weighted Logistic</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>overall accuracy</th>
+                <td>0.630252</td>
+                <td>0.630252</td>
+                <td>0.386555</td>
+                <td>0.605042</td>
+                <td>0.630252</td>
+                <td>0.563025</td>
+                <td>0.630252</td>
+                <td>0.596639</td>
+            </tr>
+            <tr>
+                <th>accuracy on class 0</th>
+                <td>0.230769</td>
+                <td>0.410256</td>
+                <td>0.897436</td>
+                <td>0.435897</td>
+                <td>0.384615</td>
+                <td>0.461538</td>
+                <td>0.435897</td>
+                <td>0.512821</td>
+            </tr>
+            <tr>
+                <th>accuracy on class 1</th>
+                <td>0.825000</td>
+                <td>0.737500</td>
+                <td>0.137500</td>
+                <td>0.687500</td>
+                <td>0.750000</td>
+                <td>0.612500</td>
+                <td>0.725000</td>
+                <td>0.637500</td>
+            </tr>
+            </tbody>
+        </table>
+
+            From the base models performance we want to pick models that perform well in both class 0 and class 1 accuracies.
+        The Random Forest, Support Vector Classification, Decision Trees, and Logistics Regression all look like good base models to start tuning to performance.
+        In the case for Logistics Regression, we will consider only the weighted option as we know our data is imbalanced.
         </p>
 
 
-
-
-
-        <h4>Understand Classification Models</h4>
+        <h4>Understand Classification Models
+            <span class="pull-right"><a class="view-notebook-link" href="https://github.com/student-performance-prediction/notebooks/blob/master/03_Model.ipynb" target="_blank">view jupyter notebook</a></span>
+        </h4>
         <p>
             Since we are working with a classification problem, understanding the various classification models and how they work is an important step before we start tuning the models[3].
             <br>Comparing Classification Models based on:
